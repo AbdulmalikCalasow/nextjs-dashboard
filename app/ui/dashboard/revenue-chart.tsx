@@ -3,11 +3,11 @@ import { CalendarIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
 import { Revenue } from '@/app/lib/definitions';
 
-export default async function RevenueChart({
-  revenue,
-}: {
-  revenue: Revenue[];
-}) {
+import { fetchRevenue } from '@/app/lib/data';
+
+export default async function RevenueChart() {
+  const revenue = await fetchRevenue();
+  
   const chartHeight = 350;
 
   if (!revenue || revenue.length === 0) {
